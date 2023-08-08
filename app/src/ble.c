@@ -639,8 +639,8 @@ static int zmk_ble_init(const struct device *_arg) {
 #endif // IS_ENABLED(CONFIG_ZMK_BLE_CLEAR_BONDS_ON_START)
 
     bt_conn_cb_register(&conn_callbacks);
-    bt_conn_auth_cb_register(&zmk_ble_auth_cb_display);
-    bt_conn_auth_info_cb_register(&zmk_ble_auth_info_cb_display);
+    // bt_conn_auth_cb_register(&zmk_ble_auth_cb_display);
+    // bt_conn_auth_info_cb_register(&zmk_ble_auth_info_cb_display);
 
     zmk_ble_ready(0);
 
