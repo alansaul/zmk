@@ -156,11 +156,13 @@ int release_peripheral_slot_for_conn(struct bt_conn *conn) {
 }
 
 int confirm_peripheral_slot_conn(struct bt_conn *conn) {
+    LOG_DBG("Confirming slot")
     int idx = peripheral_slot_index_for_conn(conn);
     if (idx < 0) {
         return idx;
     }
 
+    LOG_DBG("Setting state")
     peripherals[idx].state = PERIPHERAL_SLOT_STATE_CONNECTED;
     return 0;
 }
@@ -314,6 +316,8 @@ static uint8_t split_central_service_discovery_func(struct bt_conn *conn,
 static void split_central_process_connection(struct bt_conn *conn) {
     int err;
 
+    LOG_DBG("in split_central_process_connection")
+    LOG_DBG("Checking security")
     LOG_DBG("Current security for connection: %d", bt_conn_get_security(conn));
 
     err = bt_conn_set_security(conn, BT_SECURITY_L2);
@@ -507,6 +511,7 @@ static void split_central_connected(struct bt_conn *conn, uint8_t conn_err) {
     LOG_DBG("Connected: %s", addr);
 
     confirm_peripheral_slot_conn(conn);
+    LOG_DBG("Peripheral slot confimed")
     split_central_process_connection(conn);
 }
 
