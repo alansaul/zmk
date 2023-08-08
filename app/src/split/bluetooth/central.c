@@ -489,6 +489,7 @@ static int start_scanning(void) {
 static void split_central_connected(struct bt_conn *conn, uint8_t conn_err) {
     char addr[BT_ADDR_LE_STR_LEN];
     struct bt_conn_info info;
+    LOG_DBG("WE ARE USING THE SPLIT CENTRAL CONNECTED CODE");
 
     bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
 

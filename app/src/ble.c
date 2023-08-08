@@ -395,6 +395,7 @@ static bool is_conn_active_profile(const struct bt_conn *conn) {
 static void connected(struct bt_conn *conn, uint8_t err) {
     char addr[BT_ADDR_LE_STR_LEN];
     struct bt_conn_info info;
+    LOG_DBG("WE ARE NOT USING THE SPLIT CENTRAL CONNECTED CODE");
     LOG_DBG("Connected thread: %p", k_current_get());
 
     bt_conn_get_info(conn, &info);
