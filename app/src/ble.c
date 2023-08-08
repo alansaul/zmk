@@ -421,11 +421,13 @@ static void connected(struct bt_conn *conn, uint8_t err) {
     }
 
     update_advertising();
+    LOG_DBG("Updated advertising in non split path");
 
     if (is_conn_active_profile(conn)) {
         LOG_DBG("Active profile connected");
         k_work_submit(&raise_profile_changed_event_work);
     }
+    LOG_DBG("exiting connected function");
 }
 
 static void disconnected(struct bt_conn *conn, uint8_t reason) {
