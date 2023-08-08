@@ -510,6 +510,7 @@ static void split_central_connected(struct bt_conn *conn, uint8_t conn_err) {
 
     LOG_DBG("Connected: %s", addr);
 
+    LOG_DBG("About to confirm slot")
     confirm_peripheral_slot_conn(conn);
     LOG_DBG("Peripheral slot confimed")
     split_central_process_connection(conn);
